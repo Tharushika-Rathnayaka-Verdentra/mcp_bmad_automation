@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "testrail": {
+    "instanceUrl": "https://YOUR-INSTANCE.testrail.io",
+    "projectId": null,
+    "suiteId": null,
+    "sectionId": null,
+    "templateId": null,
+    "fields": { "preconditions": "custom_preconds", "steps": "custom_steps_separated" },
+    "caseDefaults": {},
+    "statusMap": { "passed": "passed", "failed": "failed", "timedOut": "failed", "skipped": "blocked", "interrupted": "blocked" }
+  },
+  "jira": { "cloudId": "", "projectKey": "", "issueTypeId": "", "fields": {} },
+  "discovery": {
+    "verifiedAt": "",
+    "toolSchemasValidated": false,
+    "statuses": [],
+    "caseFieldNames": [],
+    "resultFieldNames": [],
+    "requiredCaseFields": [],
+    "requiredJiraFields": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "mcp_bmad_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:regression": "playwright test",
+    "test:list": "playwright test --list",
+    "sync:dry-run": "node scripts/sync-results.js --dry-run",
+    "sync:prepare": "node scripts/sync-results.js --prepare",
+    "sync:receipt": "node scripts/sync-results.js --receipt",
+    "sync:begin": "node scripts/sync-results.js --begin",
+    "sync:check": "node scripts/sync-results.js --check",
+    "verify": "npm run test:unit && npm run test:list && npm run sync:dry-run"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "ajv": "8.20.0"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

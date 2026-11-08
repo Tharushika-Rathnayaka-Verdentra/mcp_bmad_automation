@@ -1,0 +1,33 @@
+{
+  "servers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.84", "--headless", "--isolated"]
+    },
+    "testrail": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@uarlouski/testrail-mcp-server@3.3.1"],
+      "env": {
+        "TESTRAIL_INSTANCE_URL": "${input:testrail-url}",
+        "TESTRAIL_USERNAME": "${input:testrail-username}",
+        "TESTRAIL_API_KEY": "${input:testrail-key}",
+        "TESTRAIL_ALLOW_READ_OPERATIONS": "true",
+        "TESTRAIL_ALLOW_WRITE_OPERATIONS": "true",
+        "TESTRAIL_ALLOW_DELETE_OPERATIONS": "false",
+        "TESTRAIL_ENABLE_SHARED_STEPS": "false",
+        "TESTRAIL_ENABLE_CASE_HISTORY": "false",
+        "TESTRAIL_ENABLE_RAG_TOOLS": "false",
+        "TESTRAIL_DISABLED_TOOLS": "update_case,update_cases,mutate_suite,mutate_section,add_results,add_attachment,query_attachment,delete_entity",
+        "TESTRAIL_REQUEST_TIMEOUT_MS": "30000"
+      }
+    },
+    "atlassian-rovo": { "type": "http", "url": "https://mcp.atlassian.com/v2/mcp" }
+  },
+  "inputs": [
+    { "id": "testrail-url", "type": "promptString", "description": "TestRail HTTPS instance URL" },
+    { "id": "testrail-username", "type": "promptString", "description": "TestRail account email", "password": true },
+    { "id": "testrail-key", "type": "promptString", "description": "TestRail API key", "password": true }
+  ]
+}

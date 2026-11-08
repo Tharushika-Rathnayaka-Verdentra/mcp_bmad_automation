@@ -1,0 +1,11 @@
+node_modules/
+test-results/
+playwright-report/
+artifacts/
+.playwright-mcp/
+.env
+.env.*
+!.env.example
+config/integrations.json
+config/receipts/
+*.tmp

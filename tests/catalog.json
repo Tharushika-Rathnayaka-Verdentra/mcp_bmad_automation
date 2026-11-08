@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "target": "https://opensource-demo.orangehrmlive.com",
+  "scenarios": [
+    {
+      "id": "OHRM-AUTH-001",
+      "title": "Valid login establishes an authenticated session",
+      "preconditions": ["Fresh browser context", "Demo account available"],
+      "steps": [
+        { "action": "Open the login page", "expected": "Username, Password and Login controls are visible" },
+        { "action": "Enter the runtime demo credentials and submit Login", "expected": "Dashboard is visible and URL is /web/index.php/dashboard/index" }
+      ]
+    },
+    {
+      "id": "OHRM-AUTH-002",
+      "title": "Invalid credentials do not establish a session",
+      "preconditions": ["Fresh browser context"],
+      "steps": [
+        { "action": "Submit a deliberately nonexistent account with an invalid password", "expected": "Invalid credentials message is visible and login URL is retained" },
+        { "action": "Request the protected dashboard directly", "expected": "Redirected to login; no dashboard is visible" }
+      ]
+    },
+    {
+      "id": "OHRM-AUTH-003",
+      "title": "Login requires both username and password",
+      "preconditions": ["Fresh browser context"],
+      "steps": [
+        { "action": "Submit Login with both fields empty", "expected": "Two Required validation messages appear" },
+        { "action": "Fill only username and submit", "expected": "Password has a Required message" },
+        { "action": "Clear username, fill only an invalid password and submit", "expected": "Username has a Required message and login URL is retained" }
+      ]
+    },
+    {
+      "id": "OHRM-AUTH-004",
+      "title": "Logout invalidates access to the authenticated session",
+      "preconditions": ["Fresh browser context", "Demo account available"],
+      "steps": [
+        { "action": "Log in with runtime demo credentials", "expected": "Dashboard is visible" },
+        { "action": "Open the user menu and choose Logout", "expected": "Login page is visible" },
+        { "action": "Request the protected dashboard directly", "expected": "Redirected to login; no dashboard is visible" }
+      ]
+    },
+    {
+      "id": "OHRM-AUTH-005",
+      "title": "Unauthenticated contexts cannot access the dashboard",
+      "preconditions": ["Fresh browser context with no cookies or stored authentication"],
+      "steps": [
+        { "action": "Request /web/index.php/dashboard/index without logging in", "expected": "Redirected to /web/index.php/auth/login" },
+        { "action": "Inspect the resulting page", "expected": "Login form is visible and Dashboard heading is absent" }
+      ]
+    }
+  ]
+}
