@@ -187,6 +187,12 @@
       "skillPath": "skills/bmod-method/SKILL.md",
       "computedHash": "35211b4b1ca25f886c32632f684203be86b01a6ebfd5a58e5128c1ae0f11b7ea"
     },
+    "bmod-tea": {
+      "source": "bmad-code-org/bmad-method-test-architecture-enterprise",
+      "sourceType": "github",
+      "skillPath": "skills/bmod-tea/SKILL.md",
+      "computedHash": "47f1408a0e263e58443ce389ebc922c72d1b987c8b5de68f45f79d55b1a560ce"
+    },
     "bmod-toolsmith": {
       "source": "bmad-code-org/BMAD-METHOD",
       "sourceType": "github",
